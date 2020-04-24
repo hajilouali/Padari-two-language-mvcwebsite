@@ -1,0 +1,76 @@
+﻿@using DoormatWebSite.Tools
+@model DoormatWebSite.Models.Model.Post
+@{
+    ViewBag.Title = "PostResult";
+    Layout = "~/Views/Shared/_LayoutMainSite.cshtml";
+}
+
+<section>
+    <div class="spacing remove-bottom">
+        <div class="container">
+            <div class="blog-dtl-inf">
+                <span class="cat"><a class="theme-clr" href="#" title="" itemprop="url">@Model.PostType.Title</a></span>
+                <h1 itemprop="headline">@Model.PostTitle</h1>
+                <ul class="post-meta">
+                    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                    {
+                        <li style="direction: rtl">
+                            @Convert.ToString(Model.PostDate.toshamsi()) | توسط 
+                            <a href="#" title="" itemprop="url">@Model.AspNetUsers.UserName</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li> @Convert.ToString(Model.PostDate.ToString("MMMM dd yyyy")) | by <a href="#" title="" itemprop="url">@Model.AspNetUsers.UserName</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="spacing">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-lg-8">
+                    <div class="blg-desc">
+                        @Html.Raw(Model.PostText)
+                        <div class="blg-dtl-tg-shr" @(System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa")?"style='direction:rtl'":"")>
+                            <div class="pull-left blg-tgs">
+                                <span>@DoormatWebSite.Resources.Resource.TAGS</span>
+                                @try
+                                {
+                                    foreach (var item in Model.KeyWord.Split(','))
+                                    {
+                                        <a href="#" title="" itemprop="url">@item</a>
+                                    }
+                                }
+                                catch
+                                {
+
+                                }
+                            </div>
+                            <div class="pull-right blg-scl">
+                                <span>@DoormatWebSite.Resources.Resource.SHARE</span>
+                                <a href="@Convert.ToString("https://www.facebook.com/sharer/sharer.php?u="+Request.Url.Host+Request.Url.PathAndQuery)" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="@Convert.ToString("https://t.me/share/url?url="+Request.Url.Host+Request.Url.PathAndQuery)" title="Telegram" itemprop="url" target="_blank"><i class="fa fa-telegram"></i></a>
+                                <a href="@Convert.ToString("https://plus.google.com/share?url="+Request.Url.Host+Request.Url.PathAndQuery)" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                        @Html.Action("RelatedPost","Post",new{ Category =Model.PostType.PostTypeID})
+                       
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 col-lg-4">
+                    <div class="sidebar-wrap">
+
+                        @Html.Action("ShowGroupOnSiderBar","Post")
+                        @Html.Action("LastPost","Post")
+
+                    </div><!-- Sidebar Wrap -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

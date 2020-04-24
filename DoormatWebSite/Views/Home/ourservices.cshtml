@@ -1,0 +1,60 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.OurService>
+<section>
+    <div class="spacing">
+        <div class="container">
+            <div class="srv-wrp">
+                <div class="row">
+                    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                    {
+                        <div class="col-md-8 col-sm-12 col-lg-8">
+                            <div class="srv-car owl-carousel dots-center">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="srv-bx text-center">
+                                        <i class="brd-rd50"><img src="/PageImages/@item.image" alt="@item.Title" itemprop="image"></i>
+                                        <h4 itemprop="headline"><a href="#" title="" itemprop="url">@item.Title</a></h4>
+                                        <p itemprop="description">@item.Subtitle</p>
+                                        <a href="@item.Url" title="" itemprop="url">@DoormatWebSite.Resources.Resource.ReadMore</a>
+                                    </div><!-- Service Box -->
+                                }
+                            </div><!-- Service Carousel -->
+                        </div>
+                        <div class="col-md-4 col-sm-12 col-lg-4">
+                            <div class="sec-tl1">
+                                <i>@DoormatWebSite.Resources.Resource.OURSERVICES</i>
+                                <h2 itemprop="headline">@DoormatWebSite.Resources.Resource.WhatWeDoForYou</h2>
+                                <p itemprop="description">@DoormatWebSite.Resources.Resource.ourServiceDiscription</p>
+                                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MoreServices</a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="col-md-4 col-sm-12 col-lg-4">
+                            <div class="sec-tl1">
+                                <i>@DoormatWebSite.Resources.Resource.OURSERVICES</i>
+                                <h2 itemprop="headline">@DoormatWebSite.Resources.Resource.WhatWeDoForYou</h2>
+                                <p itemprop="description">@DoormatWebSite.Resources.Resource.ourServiceDiscription</p>
+                                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MoreServices</a>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-12 col-lg-8">
+                            <div class="srv-car owl-carousel dots-center">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="srv-bx text-center">
+                                        <i class="brd-rd50"><img src="/PageImages/@item.image" alt="@item.Title" itemprop="image"></i>
+                                        <h4 itemprop="headline"><a href="@item.Url" title="" itemprop="url">@item.Title</a></h4>
+                                        <p itemprop="description">@item.Subtitle</p>
+                                        <a href="@item.Url" title="" itemprop="url">@DoormatWebSite.Resources.Resource.ReadMore</a>
+                                    </div><!-- Service Box -->
+                                }
+                            </div><!-- Service Carousel -->
+                        </div>
+                    }
+
+                </div>
+            </div><!-- What We Do Wrap -->
+        </div>
+    </div>
+</section>

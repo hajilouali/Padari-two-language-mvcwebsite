@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Root>
+  <portfolio>
+    <Backgrand>/Content/assets/images/ptrn1.jpg</Backgrand>
+  </portfolio>
+  <plan>
+    <backgrandplan>75da0914-5f30-45e9-a3ae-9cc0ddab50ac.jpg</backgrandplan>
+    <urlplan>#</urlplan>
+  </plan>
+  <videoWarp>
+    <backgrand>parlx2.jpg</backgrand>
+    <videoImage>vdo-img.jpg</videoImage>
+    <VideoURL>/PageImages/39c0dee0-9260-4d2f-8b3e-37ec576d14d6.mp4</VideoURL>
+    <URLbutten>##</URLbutten>
+  </videoWarp>
+  <contact>
+    <addressEn>No49, GolPar Alley , Motahari st , Emamzadeh Blv , Qods City , Tehran , Iran</addressEn>
+    <addressFa>تهران ، شهر قدس ، انتهای خیابان امامزاده کوچه مطهری کوچه گلپر پلاک 49</addressFa>
+    <phonenumber1>+(98)2146891581</phonenumber1>
+    <phonenumber2>+(98)2146879675</phonenumber2>
+    <Mobile>+(98)9121451163</Mobile>
+    <FacebookUrl></FacebookUrl>
+    <telegramurl></telegramurl>
+    <GooglePlus></GooglePlus>
+    <instagramurl></instagramurl>
+  </contact>
+  <siteSetting>
+    <logo>logo.png</logo>
+    <siteName>Doormat Company</siteName>
+    <sitenameFarsi>گروه تولیدی دُرمت </sitenameFarsi>
+    <siteDiscription>Doormat company is Larger producter Matt,Anti slips , Parking Pakage in IRAN </siteDiscription>
+    <sitediscriptionFarsi>گروه تولیدی دُرمت بزرگترین تولید کننده استاندارد پادری های آلومینیومی ، ترمز پله ، محافظ ستون ، گارد ستون در ایران</sitediscriptionFarsi>
+    <sitekeywords>Aluminium matting system , mat , Anti slips , Pvc Flooring , Carstop , Corner Gouard </sitekeywords>
+    <sitekeywordsFarsi>پادری آلومینیومی , پادری  مدرن , کفپوش آلومینیومی , ترمز پله ,محافظ ستون , گارد ستون , کار استاپ</sitekeywordsFarsi>
+  </siteSetting>
+  <portfolio>
+    <backGrand></backGrand>
+  </portfolio>
+  <ContactUS>
+    <backgrand></backgrand>
+  </ContactUS>
+  <footer>
+    <aboutUs>Doormat company is Larger producter Matt,Anti slips , Parking Pakage in IRAN</aboutUs>
+    <aboutUsFa>گروه تولیدی دُرمت بزرگترین تولید کننده استاندارد پادری های آلومینیومی ، ترمز پله ، محافظ ستون ، گارد ستون در ایران</aboutUsFa>
+  </footer>
+  <bloggResult>
+    <Backgrand>shutterstock_153666212.jpg</Backgrand>
+  </bloggResult>
+</Root>

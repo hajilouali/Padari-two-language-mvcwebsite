@@ -1,0 +1,56 @@
+﻿@using DoormatWebSite.Tools
+@model IEnumerable<DoormatWebSite.Models.Model.Post>
+<section>
+    <div class="spacing top-spac70">
+        <div class="container">
+            <div class="sec-tl2 text-center">
+                <i>@DoormatWebSite.Resources.Resource.LATESTPost</i>
+                <h2 class="no-bf" itemprop="headline"><a class="url" href="/">@DoormatWebSite.Resources.Resource.FromBlogWebsite</a></h2>
+            </div>
+            <div class="remove-ext3">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 col-lg-4">
+                            <div class="post-bx text-center">
+                                <div class="post-thumb hrz brd-rd3">
+                                    <a href="/Posts/@item.PostType.Title/@Convert.ToString(item.PostTitle).Trim(new char[]{'/','.',':','*'})" title="" itemprop="url"><img src=@(string.IsNullOrEmpty(item.PostImage)?"/PageImages/post-img1-1.jpg":"/PageImages/"+item.PostImage) alt="@item.PostTitle" itemprop="image"></a>
+                                </div>
+                                <div class="post-info">
+                                    <h4 itemprop="headline"><a href="/Posts/@item.PostType.Title/@Convert.ToString(item.PostTitle).Trim(new char[]{'/','.',':','*'})" title="" itemprop="url">@item.PostTitle</a></h4>
+                                    <ul class="post-meta">
+                                        <li>
+                                            @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                                            {
+                                                <p><a href="#" title="" itemprop="url">@item.AspNetUsers.UserName</a>منتشر شده توسط </p>
+                                            }
+                                            else
+                                            {
+                                                <p>By &nbsp;<a href="#" title="" itemprop="url">@item.AspNetUsers.UserName</a></p>
+                                            }
+
+                                        </li>
+                                        <li>
+                                            @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                                            {
+                                            <p><a href="#" title="" itemprop="url">@item.PostType.Title</a>در @item.PostDate.toshamsi() منتشر شده </p>
+                                            }
+                                            else
+                                            {
+                                            <p>@item.PostDate.ToString("MMMM dd yyyy") in <a href="#" title="" itemprop="url">@item.PostType.Title</a></p>
+                                                
+                                            }
+
+                                        </li>
+                                    </ul>
+                                    <p itemprop="description">@Html.Raw(item.PostShortDiscription)</p>
+                                    <a class="theme-btn hrz brd-rd3 theme-bf-bg" href="/Posts/@item.PostType.Title/@Convert.ToString(item.PostTitle).Trim(new char[]{'/','.',':','*'})" title="" itemprop="url">@DoormatWebSite.Resources.Resource.ReadMore</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

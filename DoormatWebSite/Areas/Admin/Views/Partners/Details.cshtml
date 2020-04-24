@@ -1,0 +1,82 @@
+﻿@model DoormatWebSite.Models.Model.Partner
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Partner</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumer2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumer2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BranchOffice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BranchOffice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

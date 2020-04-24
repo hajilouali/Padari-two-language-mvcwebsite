@@ -1,0 +1,170 @@
+﻿@using DoormatWebSite.Tools
+@using PagedList.Mvc
+@model PagedList.IPagedList<DoormatWebSite.Models.Model.OurWorkGallery>
+
+@*< !--sample modal content -->*@
+<div id="responsive-modal" class="modal fade text-center" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="myModalLabel">×</button>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                <form></form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
+<div class="col-12">
+    <div class="card">
+        <div class="card-body">
+
+            <p>
+                <a class="btn btn-success" style="color: white" data-toggle="modal" data-target="#responsive-modal" id="btnNewGroup">@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew</a>
+            </p>
+            <div>
+                <table>
+                    <tr>
+                        <td>@Html.Label("search", "Customer Name:", new { @class = "form-label" })</td>
+                        <td>@Html.TextBox("search", ViewBag.CurrentSearch as string, new { @class = "form-control" }) </td>
+                        <td>@Html.ActionLink("Filter", "Result", new { search = "xyz" }, new { @class = "btn btn-default", btnName = "FilterCustomer" })</td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName(DoormatWebSite.Resources.Models.ourserviceTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayName(DoormatWebSite.Resources.Models.Date)
+                    </th>
+                    <th>
+                        @Html.DisplayName(DoormatWebSite.Resources.Models.ourserviceimage)
+                    </th>
+                    <th>
+                        @Html.DisplayName(DoormatWebSite.Resources.Models.OurWorkGalleryTypeId)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                            {
+                                @Convert.ToString(item.date.toshamsi()+"  ")   @Convert.ToString(item.date.ToString("HH:mm:ss"))
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.date)
+                            }
+
+                        </td>
+                        <td>
+                            <img src="/PageImages/@item.Image" class="thumbnail img-rounded" style="max-width: 120px" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OurWorkGalleryType.Title)
+                        </td>
+
+                        <td>
+                            <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#responsive-modal" onclick="editGroup(@item.id)">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#responsive-modal" onclick="deleteGroup(@item.id)">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+            <div id="myPager">
+
+                @Html.PagedListPager(Model, page => Url.Action("Result", new { page, sort = ViewBag.CurrentSort, search = ViewBag.CurrentSearch }))
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[btnName=FilterCustomer]").click(function (e) {
+            e.preventDefault();
+            var search = $('input[name=search]').val();
+            this.href = this.href.replace('xyz', search);
+            $('#contentFrame').mask("waiting ...");
+            $.ajax({
+                url: this.href,
+                type: 'POST',
+                cache: false,
+                success: function (result) {
+                    $('#contentFrame').unmask("waiting ...");
+                    $('#contentFrame').html(result);
+                }
+
+            });
+        });
+        $('#myPager').on('click', 'a', function (e) {
+            e.preventDefault();
+            $('#contentFrame').mask("waiting ...");
+            $.ajax({
+                url: this.href,
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#contentFrame').unmask("waiting ...");
+                    $('#contentFrame').html(result);
+
+                }
+            });
+
+        });
+
+    });
+</script>
+
+<script>
+        $("#btnNewGroup").click(function() {
+
+            $.get("/Admin/OurWorkGalleries/Create",
+                function(result) {
+
+                    $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew');
+                    $("#myModalBody").html(result);
+                });
+
+        });
+
+        function editGroup(id) {
+            $.get("/Admin/OurWorkGalleries/Edit/" + id,
+                function(result) {
+
+                    $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.Edit');
+                    $("#myModalBody").html(result);
+                });
+        }
+
+
+        function deleteGroup(id) {
+            $.get("/Admin/OurWorkGalleries/Delete/" + id,
+                function(result) {
+
+                    $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.Delete');
+                    $("#myModalBody").html(result);
+                });
+        }
+
+</script>

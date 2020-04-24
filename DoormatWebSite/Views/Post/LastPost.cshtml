@@ -1,0 +1,28 @@
+﻿@using DoormatWebSite.Tools
+@model IEnumerable<DoormatWebSite.Models.Model.Post>
+<div class="wdgt">
+    <h4 itemprop="headline" class="wdgt-tl">@DoormatWebSite.Resources.Resource.LatestPosts</h4>
+    @foreach (var item in Model)
+    {
+        <div class="rcnt-itm">
+            <a href="blog-detail-right-sidebar.html" title="" itemprop="url"><img style="height: 89px;width: 121px" src="/PageImages/@item.PostImage" alt="@item.PostTitle" itemprop="image"></a>
+            <h4 itemprop="headline"><a href="/Posts/@item.PostType.Title/@item.PostTitle" title="" itemprop="url">@item.PostTitle</a></h4>
+            <ul class="post-meta">
+                @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                {
+                    <li @(System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa")?"style='direction:rtl'":"")>
+                        @Convert.ToString(item.PostDate.toshamsi()) 
+                        منتشر در 
+
+                        <a href="#" title="" itemprop="url">@item.PostType.Title</a>
+                    </li>
+                }
+                else
+                {
+                    <li>@Convert.ToString(item.PostDate.ToString("MMMM dd yyyy")) in <a href="#" title="" itemprop="url">@item.PostType.Title</a></li>
+                }
+
+            </ul>
+        </div>
+    }
+</div>

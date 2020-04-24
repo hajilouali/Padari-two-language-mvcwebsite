@@ -1,0 +1,117 @@
+﻿@using DoormatWebSite.Tools
+@model IEnumerable<DoormatWebSite.Models.Model.Post>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+}
+
+<div class="page-wrapper">
+    <!-- sample modal content -->
+    <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="myModalLabel">×</button>
+                </div>
+                <div class="modal-body" id="myModalBody">
+                    <form></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+    <div class="card">
+        <h2 class="card-header">Index</h2>
+        <div class="card-body">
+            <p>
+                <a href="/admin/posts/Create" class="btn btn-success">@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew</a>
+            </p>
+            <table class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint">
+                <thead class="bg-primary text-white">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostImage)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostShortDiscription)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AspNetUsers.UserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PostType.Title)
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                <tbody class="border border-primary">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostTitle)
+                        </td>
+                        <td>
+                            <img src="/PageImages/@item.PostImage" width="150px"/>
+                        </td>
+                        <td>
+                            @Html.Raw(item.PostShortDiscription)
+                        </td>
+                        <td>
+                            @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                            {
+                                @Convert.ToString(item.PostDate.toshamsi() + " ")
+                                @Convert.ToString(item.PostDate.ToString("HH:mm:ss"))
+                            }
+                            else
+                            {
+                                @Html.DisplayFor(modelItem => item.PostDate)
+                            }
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AspNetUsers.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PostType.Title)
+                        </td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" href="/Admin/Posts/Edit/@item.PostID">
+                                <i class="far fa-edit"></i>
+                            </a>
+                            <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#responsive-modal" onclick="deleteGroup(@item.PostID)">
+                                <i class="far fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+   
+
+
+    function deleteGroup(id) {
+        $.get("/Admin/Posts/Delete/" + id,
+            function(result) {
+
+                $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.Delete');
+                $("#myModalBody").html(result);
+            });
+    }
+
+</script>
+

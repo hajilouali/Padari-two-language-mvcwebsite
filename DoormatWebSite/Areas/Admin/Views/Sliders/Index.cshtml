@@ -1,0 +1,129 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.Slider>
+
+@{
+    ViewBag.Title = "Index";
+}
+@section header
+{
+    <link href="/Areas/Admin/assets/libs/jsgrid/dist/jsgrid-theme.min.css" rel="stylesheet">
+    <link href="/Areas/Admin/assets/libs/jsgrid/dist/jsgrid.min.css" rel="stylesheet">
+}
+<div class="page-wrapper">
+    <div class="col-12">
+        <div class="card">
+            <h2 class="card-header">@DoormatWebSite.Areas.Admin.Resource.Admin.Slider</h2>
+            <div class="card-body">
+                <p>
+                    @Html.ActionLink(@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew, "Create")
+                </p>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint">
+                        <thead class="bg-primary text-white">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.SubTitle)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Subtitle1)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Subtitle2)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.languageType.Type)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="border border-primary">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="/PageImages/@item.Image" class="thumbnail img-rounded" style="max-width: 120px" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Title)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.SubTitle)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Subtitle1)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Subtitle2)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.languageType.Type)
+                                    </td>
+                                    <td style="width: 50px;" class="jsgrid-cell jsgrid-control-field jsgrid-align-center">
+                                        <a class="btn btn-sm btn-warning" href="/Admin/Sliders/Edit?id=@item.SliderID">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <!-- sample modal content -->
+                                                <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                            </div>
+                                                            <div class="modal-body" id="myModalBody">
+                                                                <form>
+                                                                    
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /.modal -->
+                                                <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#responsive-modal" onclick="deleteGroup(@item.SliderID)">
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts
+{
+    <script src="/Areas/Admin/dist/js/pages/tables/js-grid-db.js"></script>
+    <script src="/Areas/Admin/assets/libs/jsgrid/dist/jsgrid.min.js"></script>
+    <script src="/Areas/Admin/dist/js/pages/tables/js-grid-init.js"></script>
+    <script>
+        function deleteGroup(id) {
+            $.get("/Admin/Sliders/Delete/" + id, function(result) {
+                $("#myModalBody").html(result);
+            });
+        }
+    </script>
+}
+
+

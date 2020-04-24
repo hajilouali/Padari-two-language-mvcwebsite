@@ -1,0 +1,24 @@
+﻿<section>
+    <div class="spacing top-spac190 bottom-spac155">
+        <div class="fixed-bg2" style="background-image: url(/PageImages/@ViewBag.backgrand);"></div>
+        <div class="container">
+            <div class="vdo-wrp">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-lg-6">
+                        <div class="vdo-bx brd-rd10 theme-bf-bg">
+                            <img src="/PageImages/@ViewBag.videoImage" alt="vdo-img.jpg" itemprop="image">
+                            <a class="brd-rd50" data-fancybox href="@ViewBag.VideoURL" title="" itemprop="url"><i class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-lg-6">
+                        <div class="vdo-info">
+                            <h2 itemprop="headline">@Html.Raw(DoormatWebSite.Resources.Resource.VideoWarpTitle)</h2>
+                            <p itemprop="description">@DoormatWebSite.Resources.Resource.VideoWarpText</p>
+                            <a class="theme-btn hrz theme-bf-bg brd-rd3" href="@ViewBag.URLbutten" title="" itemprop="url">@DoormatWebSite.Resources.Resource.PURCHASENOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Video Wrap -->
+        </div>
+    </div>
+</section>

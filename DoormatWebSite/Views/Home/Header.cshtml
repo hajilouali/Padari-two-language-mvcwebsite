@@ -1,0 +1,131 @@
+﻿<header class="style4 stick">
+    <div class="topbar-box text-center">
+        <ul class="topbar-info text-left pull-left">
+            <li><i class="fa fa-phone"></i> <strong>@ViewBag.Number1 <br />@ViewBag.number2</strong>@*@DoormatWebSite.Resources.Resource.InWorkTime*@ </li>
+            <li><i class="fa fa-mobile-phone"></i> <strong>@ViewBag.mobile</strong> @DoormatWebSite.Resources.Resource.Callusanytime</li>
+            <li @(System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa")?"class=text-lg-right style=direction: rtl":"")><i class="fa fa-clock-o"></i> <strong>@DoormatWebSite.Resources.Resource.WorkingHours</strong> @DoormatWebSite.Resources.Resource.TimeWork</li>
+        </ul>
+        <div class="topbar-scl-sgn pull-right">
+            <div class="tp-scl">
+                <a href="@ViewBag.googleplus" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                <a href="@ViewBag.Telegram" title="Telegram" itemprop="url" target="_blank"><i class="fa fa-telegram"></i></a>
+                <a href="@ViewBag.Facebook" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook-square"></i></a>
+                <a href="@ViewBag.Instagram" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
+            </div>
+            @if (Request.IsAuthenticated)
+            {
+                if (User.IsInRole("Admin"))
+                {
+                    <a href="/admin/Home/">@DoormatWebSite.Areas.Admin.Resource.Admin.Dashboard</a> 
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                }
+                else
+                {
+                    <p>@User.Identity.Name</p>
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>
+                }
+            }
+            else
+            {
+                <a href="#" title="" itemprop="url"><i class="fa fa-sign-in"></i> @DoormatWebSite.Resources.Resource.Loginonsite</a>
+
+            }
+        </div>
+        <div class="logo pull-right"><a href="/" title="Logo" itemprop="url"><img src="/PageImages/@ViewBag.logo" alt="logo" itemprop="image"></a></div>
+    </div><!-- Topbar Box -->
+    <div class="menu-box">
+        <div class="container">
+            <nav>
+                <div>
+                    <ul class="srch-lnks pull-right">
+                        @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                        {
+                            <li><a href="/Language/Change?Language=en"><i class="flag-icon flag-icon-gb" title="gb" id="gb"></i></a></li>
+                        }
+                        @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("en"))
+                        {
+                            <li><a href="/Language/Change?Language=fa"><i class="flag-icon flag-icon-ir" title="ir" id="ir"></i></a></li>
+                        }
+                        <li><a href="#" title="" itemprop="url"><i class="fa fa-shopping-bag"></i><span class="theme-bg brd-rd50">3</span></a></li>
+                        <li><a href="#" class="srch-btn" title="" itemprop="url"><i class="fa fa-search"></i></a></li>
+
+                    </ul>
+                    <ul>
+                        <li class="">
+                            <a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.Home</a>
+                        </li>
+                        <li class="">
+                            <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.AboutUs</a>
+                        </li>
+                        <li class="menu-item-has-children text-center">
+                            <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MenuProducts</a>
+                            <ul>
+                                <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MenuMatts</a></li>
+                                <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuAntiSlips</a></li>
+                                <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuParkingPakage</a></li>
+                                <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuOtherProducts</a></li>
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuBlog</a>
+                        </li>
+                        <li class="">
+                            <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuContactUS</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div><!-- Menu Box -->
+</header><!-- Header -->
+<div class="hdr-srch-bx">
+    <span class="srch-cls-btn"><i class="fa fa-close"></i></span>
+    <form>
+        <input type="text" placeholder="@DoormatWebSite.Resources.Resource.SearchPlaceHolder">
+        <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+</div>
+<div class="rspn-hdr">
+    <div class="rspn-mdbr">
+        <ul class="rspn-scil">
+            <li><a href="@ViewBag.Telegram" title="" itemprop="url" target="_blank"><i class="fa fa-telegram"></i></a></li>
+            <li><a href="@ViewBag.Facebook" title="" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="@ViewBag.googleplus" title="" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="@ViewBag.Instagram" title="" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+        <form class="rspn-srch">
+            <input type="text" placeholder="@DoormatWebSite.Resources.Resource.SearchPlaceHolder" />
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="lg-mn">
+        <div class="logo"><a href="/" title="Logo" itemprop="url"><img src="/PageImages/@ViewBag.logo" alt="logo" itemprop="image"></a></div>
+        <span class="rspn-mnu-btn"><i class="fa fa-list-ul"></i></span>
+    </div>
+    <div class="rsnp-mnu">
+        <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
+        <ul>
+            <li class="mce-menu-item-link">
+                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.Home</a>
+            </li>
+            <li class="mce-menu-item-link">
+                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.AboutUs</a>
+            </li>
+            <li class="menu-item-has-children">
+                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MenuProducts</a>
+                <ul>
+                    <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.MenuMatts</a></li>
+                    <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuAntiSlips</a></li>
+                    <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuParkingPakage</a></li>
+                    <li><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuOtherProducts</a></li>
+                </ul>
+            </li>
+            <li class="mce-menu-item-link">
+                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuBlog</a>
+            </li>
+            <li class="mce-menu-item-link">
+                <a href="#" title="" itemprop="url">@DoormatWebSite.Resources.Resource.menuContactUS</a>
+            </li>
+        </ul>
+    </div><!-- Responsive Menu -->
+</div><!-- Responsive Header -->

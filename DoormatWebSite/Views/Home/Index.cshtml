@@ -1,0 +1,98 @@
+﻿@using System.Diagnostics.Eventing.Reader
+@{
+    Layout = null;
+}<!DOCTYPE html>
+<html lang="@System.Globalization.CultureInfo.CurrentCulture.Name">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@ViewBag.Discription" />
+    <meta name="keywords" content="@ViewBag.KeyWord" />
+    <title>@ViewBag.SiteName - @ViewBag.Discription</title>
+
+    <script src="/Content/assets/js/jquery.min.js"></script>
+    <script src="/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <link href="~/Areas/Admin/dist/css/icons/flag-icon-css/flag-icon.min.css" rel="stylesheet" />
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <link rel="stylesheet" href="/Content/assets/css/webfonts.css">
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+    {
+        <link rel="stylesheet" href="/Content/assets/css/bootstrap.min.fa.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="/Content/assets/css/bootstrap.min.css">
+    }
+    <link rel="stylesheet" href="/Content/assets/css/plugins.min.css">
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+    {
+
+        <link rel="stylesheet" href="/Content/assets/css/style-fa.css">
+
+    }
+    else
+    {
+        <link rel="stylesheet" href="/Content/assets/css/style.css">
+    }
+    <link rel="stylesheet" href="/Content/assets/css/color.css">
+    <link rel="stylesheet" href="/Content/assets/css/responsive.css">
+
+    <!-- Revolution Style -->
+    <link rel="stylesheet" href="/Content/assets/css/revolution/settings.css">
+    <link rel="stylesheet" href="/Content/assets/css/revolution/navigation.css">
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body itemscope>
+    @if (ViewBag.IsSuccess == false)
+    {
+        @ViewBag.Message;
+    }
+    @if (ViewBag.IsSuccess == false)
+    {
+        @ViewBag.Message;
+    }
+    else
+    {
+        <main>
+            @Html.Action("Header", "Home")
+            @Html.Action("Slider")
+            @Html.Action("ourservices")
+            @Html.Action("portfolio")
+            @Html.Action("ourCustomer")
+            @Html.Action("PlanResult")
+            <div class="spacing top-spac200 bottom-spac70 "></div>
+            @Html.Action("MarketInfo")
+            @Html.Action("VideoWarp")
+            @Html.Action("BlogResult")
+            @Html.Action("CuntactUS")
+            @Html.Action("FoteResult")
+            @Html.Action("copywrite")
+
+
+        </main><!-- Main Wrapper -->
+    }
+
+    <script src="/Content/assets/js/plugins.min.js"></script>
+    <script src="/Content/assets/js/part-int.js"></script>
+    <script src="/Content/assets/js/custom-scripts.js"></script>
+
+    <!-- Revolution JS Files -->
+    <script src="/Content/assets/js/revolution/jquery.themepunch.tools.min.js"></script>
+    <script src="/Content/assets/js/revolution/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Slider Revolution 5.0 Extensions -->
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.actions.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.migration.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="/Content/assets/js/revolution/extensions/revolution.extension.video.min.js"></script>
+    <script src="/Content/assets/js/revolution/revolution-init.js"></script>
+</body>
+</html>

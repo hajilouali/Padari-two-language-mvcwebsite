@@ -1,0 +1,86 @@
+﻿@model DoormatWebSite.Models.Model.Partner
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h3>@DoormatWebSite.Areas.Admin.Resource.Admin.warningDelete</h3>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.LanguageType.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LanguageType.Type)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumer)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumer)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumer2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumer2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mobile)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BranchOffice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BranchOffice)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="@DoormatWebSite.Areas.Admin.Resource.Admin.Delete" class="btn btn-default" /> |
+            </div>
+        }
+    </div>
+</div>

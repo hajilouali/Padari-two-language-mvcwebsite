@@ -1,0 +1,10 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.PostType>
+<div class="wdgt">
+    <h4 itemprop="headline" class="wdgt-tl">@DoormatWebSite.Resources.Resource.Categories</h4>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li><a href="#" title="" itemprop="url">@item.Title</a> <span>(@item.Post.Count)</span></li>
+        }
+    </ul>
+</div>

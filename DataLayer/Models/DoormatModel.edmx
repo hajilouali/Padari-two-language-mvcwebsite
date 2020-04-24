@@ -1,0 +1,1604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DoormatWebSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AttachmentFactor">
+          <Key>
+            <PropertyRef Name="AttachmentFactorID" />
+          </Key>
+          <Property Name="AttachmentFactorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AttachmentDiscription" Type="nvarchar" MaxLength="350" />
+          <Property Name="FileAttach" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="FactorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Factor">
+          <Key>
+            <PropertyRef Name="FactorID" />
+          </Key>
+          <Property Name="FactorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="TotalSalary" Type="float" Nullable="false" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="FactorStateID" Type="int" Nullable="false" />
+          <Property Name="FactorDiscription" Type="nvarchar" MaxLength="350" />
+          <Property Name="Salary" Type="float" Nullable="false" />
+          <Property Name="ArzeshAfzodeh" Type="float" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CustomerPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="FactorAndService">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ServiceID" Type="int" Nullable="false" />
+          <Property Name="FactorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FactorState">
+          <Key>
+            <PropertyRef Name="FactorStateID" />
+          </Key>
+          <Property Name="FactorStateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="languageType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OurWorkGallery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OurWorkGalleryTypeId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" />
+          <Property Name="Image" Type="nvarchar" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="OurWorkGalleryType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="languageType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="City" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="550" />
+          <Property Name="PhoneNumer" Type="nvarchar" MaxLength="150" />
+          <Property Name="PhoneNumer2" Type="nvarchar" MaxLength="150" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="150" />
+          <Property Name="languageType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PostText" Type="nvarchar(max)" />
+          <Property Name="PostTypeID" Type="int" />
+          <Property Name="PostShortDiscription" Type="nvarchar" MaxLength="350" />
+          <Property Name="PostDate" Type="datetime" Nullable="false" />
+          <Property Name="KeyWord" Type="nvarchar" MaxLength="300" />
+          <Property Name="AspNetUsersID" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="PostTypeID" />
+          </Key>
+          <Property Name="PostTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="languageType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductTypeID" Type="int" />
+          <Property Name="AspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ShortDiscription" Type="nvarchar" MaxLength="350" />
+          <Property Name="Text" Type="nvarchar(max)" />
+          <Property Name="PicThumbnail" Type="nvarchar" MaxLength="350" />
+          <Property Name="KeyWord" Type="nvarchar" MaxLength="500" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="UnitSalary" Type="float" />
+          <Property Name="UnitID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductGallery">
+          <Key>
+            <PropertyRef Name="ProductGalleryID" />
+          </Key>
+          <Property Name="ProductGalleryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="ProductPropertyID" />
+          </Key>
+          <Property Name="ProductPropertyID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Discription" Type="nvarchar" MaxLength="450" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeId" />
+          </Key>
+          <Property Name="ProductTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="languageType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RowFactor">
+          <Key>
+            <PropertyRef Name="RowFactorID" />
+          </Key>
+          <Property Name="RowFactorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="FactorID" Type="int" />
+          <Property Name="Lenght" Type="float" />
+          <Property Name="Width" Type="float" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="RowSalary" Type="float" Nullable="false" />
+          <Property Name="RowDiscription" Type="nvarchar" MaxLength="450" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="Salary" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="SubTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subtitle1" Type="nvarchar" MaxLength="250" />
+          <Property Name="Subtitle2" Type="nvarchar" MaxLength="250" />
+          <Property Name="languageType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UnitType">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AttachmentFactor_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="0..1" />
+          <End Role="AttachmentFactor" Type="Self.AttachmentFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="AttachmentFactor">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factor_Factor">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Factor" Type="Self.Factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factor_Factor1">
+          <End Role="FactorState" Type="Self.FactorState" Multiplicity="1" />
+          <End Role="Factor" Type="Self.Factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FactorState">
+              <PropertyRef Name="FactorStateID" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="FactorStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactorAndService_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="1" />
+          <End Role="FactorAndService" Type="Self.FactorAndService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="FactorAndService">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactorAndService_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="FactorAndService" Type="Self.FactorAndService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="FactorAndService">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OurWorkGallery_OurWorkGalleryType">
+          <End Role="OurWorkGalleryType" Type="Self.OurWorkGalleryType" Multiplicity="1" />
+          <End Role="OurWorkGallery" Type="Self.OurWorkGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OurWorkGalleryType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OurWorkGallery">
+              <PropertyRef Name="OurWorkGalleryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OurWorkGalleryType_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="OurWorkGalleryType" Type="Self.OurWorkGalleryType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OurWorkGalleryType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Partner_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partner">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="AspNetUsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_PostType">
+          <End Role="PostType" Type="Self.PostType" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostType">
+              <PropertyRef Name="PostTypeID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="PostTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostType_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="PostType" Type="Self.PostType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PostType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ProductTypeId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitType">
+          <End Role="UnitType" Type="Self.UnitType" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitType">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGallery_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductGallery" Type="Self.ProductGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductGallery">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType_ProductType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RowFactor_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="0..1" />
+          <End Role="RowFactor" Type="Self.RowFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="RowFactor">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RowFactor_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="RowFactor" Type="Self.RowFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="RowFactor">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slider_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Slider">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DoormatWebSiteModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttachmentFactor" EntityType="Self.AttachmentFactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Factor" EntityType="Self.Factor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactorAndService" EntityType="Self.FactorAndService" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FactorState" EntityType="Self.FactorState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="languageType" EntityType="Self.languageType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OurWorkGallery" EntityType="Self.OurWorkGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OurWorkGalleryType" EntityType="Self.OurWorkGalleryType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partner" EntityType="Self.Partner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PostType" EntityType="Self.PostType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductGallery" EntityType="Self.ProductGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductProperty" EntityType="Self.ProductProperty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RowFactor" EntityType="Self.RowFactor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UnitType" EntityType="Self.UnitType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AttachmentFactor_Factor" Association="Self.FK_AttachmentFactor_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="AttachmentFactor" EntitySet="AttachmentFactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factor_Factor" Association="Self.FK_Factor_Factor">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Factor" EntitySet="Factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factor_Factor1" Association="Self.FK_Factor_Factor1">
+            <End Role="FactorState" EntitySet="FactorState" />
+            <End Role="Factor" EntitySet="Factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactorAndService_Factor" Association="Self.FK_FactorAndService_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="FactorAndService" EntitySet="FactorAndService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactorAndService_Service" Association="Self.FK_FactorAndService_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="FactorAndService" EntitySet="FactorAndService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OurWorkGallery_OurWorkGalleryType" Association="Self.FK_OurWorkGallery_OurWorkGalleryType">
+            <End Role="OurWorkGalleryType" EntitySet="OurWorkGalleryType" />
+            <End Role="OurWorkGallery" EntitySet="OurWorkGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OurWorkGalleryType_languageType" Association="Self.FK_OurWorkGalleryType_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="OurWorkGalleryType" EntitySet="OurWorkGalleryType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Partner_languageType" Association="Self.FK_Partner_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="Partner" EntitySet="Partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_AspNetUsers" Association="Self.FK_Post_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_PostType" Association="Self.FK_Post_PostType">
+            <End Role="PostType" EntitySet="PostType" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostType_languageType" Association="Self.FK_PostType_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="PostType" EntitySet="PostType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_AspNetUsers" Association="Self.FK_Product_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitType" Association="Self.FK_Product_UnitType">
+            <End Role="UnitType" EntitySet="UnitType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGallery_Product" Association="Self.FK_ProductGallery_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductGallery" EntitySet="ProductGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Product" Association="Self.FK_ProductProperty_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType_ProductType" Association="Self.FK_ProductType_ProductType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="ProductType" EntitySet="ProductType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RowFactor_Factor" Association="Self.FK_RowFactor_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="RowFactor" EntitySet="RowFactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RowFactor_Product" Association="Self.FK_RowFactor_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RowFactor" EntitySet="RowFactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slider_languageType" Association="Self.FK_Slider_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="Slider" EntitySet="Slider" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DoormatWebSiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="Factor" Relationship="Self.FK_Factor_Factor" FromRole="AspNetUsers" ToRole="Factor" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_AspNetUsers" FromRole="AspNetUsers" ToRole="Post" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_AspNetUsers" FromRole="AspNetUsers" ToRole="Product" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="AttachmentFactor">
+          <Key>
+            <PropertyRef Name="AttachmentFactorID" />
+          </Key>
+          <Property Name="AttachmentFactorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AttachmentDiscription" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="FileAttach" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FactorID" Type="Int32" />
+          <NavigationProperty Name="Factor" Relationship="Self.FK_AttachmentFactor_Factor" FromRole="AttachmentFactor" ToRole="Factor" />
+        </EntityType>
+        <EntityType Name="Factor">
+          <Key>
+            <PropertyRef Name="FactorID" />
+          </Key>
+          <Property Name="FactorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TotalSalary" Type="Double" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FactorStateID" Type="Int32" Nullable="false" />
+          <Property Name="FactorDiscription" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Salary" Type="Double" Nullable="false" />
+          <Property Name="ArzeshAfzodeh" Type="Double" />
+          <Property Name="CustomerName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Factor_Factor" FromRole="Factor" ToRole="AspNetUsers" />
+          <NavigationProperty Name="AttachmentFactor" Relationship="Self.FK_AttachmentFactor_Factor" FromRole="Factor" ToRole="AttachmentFactor" />
+          <NavigationProperty Name="FactorState" Relationship="Self.FK_Factor_Factor1" FromRole="Factor" ToRole="FactorState" />
+          <NavigationProperty Name="FactorAndService" Relationship="Self.FK_FactorAndService_Factor" FromRole="Factor" ToRole="FactorAndService" />
+          <NavigationProperty Name="RowFactor" Relationship="Self.FK_RowFactor_Factor" FromRole="Factor" ToRole="RowFactor" />
+        </EntityType>
+        <EntityType Name="FactorAndService">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ServiceID" Type="Int32" Nullable="false" />
+          <Property Name="FactorID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="Self.FK_FactorAndService_Factor" FromRole="FactorAndService" ToRole="Factor" />
+          <NavigationProperty Name="Service" Relationship="Self.FK_FactorAndService_Service" FromRole="FactorAndService" ToRole="Service" />
+        </EntityType>
+        <EntityType Name="FactorState">
+          <Key>
+            <PropertyRef Name="FactorStateID" />
+          </Key>
+          <Property Name="FactorStateID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Factor" Relationship="Self.FK_Factor_Factor1" FromRole="FactorState" ToRole="Factor" />
+        </EntityType>
+        <EntityType Name="languageType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="OurWorkGalleryType" Relationship="Self.FK_OurWorkGalleryType_languageType" FromRole="languageType" ToRole="OurWorkGalleryType" />
+          <NavigationProperty Name="Partner" Relationship="Self.FK_Partner_languageType" FromRole="languageType" ToRole="Partner" />
+          <NavigationProperty Name="PostType" Relationship="Self.FK_PostType_languageType" FromRole="languageType" ToRole="PostType" />
+          <NavigationProperty Name="ProductType" Relationship="Self.FK_ProductType_ProductType" FromRole="languageType" ToRole="ProductType" />
+          <NavigationProperty Name="Slider" Relationship="Self.FK_Slider_languageType" FromRole="languageType" ToRole="Slider" />
+        </EntityType>
+        <EntityType Name="OurWorkGallery">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OurWorkGalleryTypeId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="OurWorkGalleryType" Relationship="Self.FK_OurWorkGallery_OurWorkGalleryType" FromRole="OurWorkGallery" ToRole="OurWorkGalleryType" />
+        </EntityType>
+        <EntityType Name="OurWorkGalleryType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="languageType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="languageType1" Relationship="Self.FK_OurWorkGalleryType_languageType" FromRole="OurWorkGalleryType" ToRole="languageType" />
+          <NavigationProperty Name="OurWorkGallery" Relationship="Self.FK_OurWorkGallery_OurWorkGalleryType" FromRole="OurWorkGalleryType" ToRole="OurWorkGallery" />
+        </EntityType>
+        <EntityType Name="Partner">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumer" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumer2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="languageType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="languageType1" Relationship="Self.FK_Partner_languageType" FromRole="Partner" ToRole="languageType" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PostTypeID" Type="Int32" />
+          <Property Name="PostShortDiscription" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="PostDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KeyWord" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AspNetUsersID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Post_AspNetUsers" FromRole="Post" ToRole="AspNetUsers" />
+          <NavigationProperty Name="PostType" Relationship="Self.FK_Post_PostType" FromRole="Post" ToRole="PostType" />
+        </EntityType>
+        <EntityType Name="PostType">
+          <Key>
+            <PropertyRef Name="PostTypeID" />
+          </Key>
+          <Property Name="PostTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="languageType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="languageType1" Relationship="Self.FK_PostType_languageType" FromRole="PostType" ToRole="languageType" />
+          <NavigationProperty Name="Post" Relationship="Self.FK_Post_PostType" FromRole="PostType" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductTypeID" Type="Int32" />
+          <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ShortDiscription" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PicThumbnail" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="KeyWord" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UnitSalary" Type="Double" />
+          <Property Name="UnitID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_Product_AspNetUsers" FromRole="Product" ToRole="AspNetUsers" />
+          <NavigationProperty Name="ProductType" Relationship="Self.FK_Product_ProductType" FromRole="Product" ToRole="ProductType" />
+          <NavigationProperty Name="UnitType" Relationship="Self.FK_Product_UnitType" FromRole="Product" ToRole="UnitType" />
+          <NavigationProperty Name="ProductGallery" Relationship="Self.FK_ProductGallery_Product" FromRole="Product" ToRole="ProductGallery" />
+          <NavigationProperty Name="ProductProperty" Relationship="Self.FK_ProductProperty_Product" FromRole="Product" ToRole="ProductProperty" />
+          <NavigationProperty Name="RowFactor" Relationship="Self.FK_RowFactor_Product" FromRole="Product" ToRole="RowFactor" />
+        </EntityType>
+        <EntityType Name="ProductGallery">
+          <Key>
+            <PropertyRef Name="ProductGalleryID" />
+          </Key>
+          <Property Name="ProductGalleryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductGallery_Product" FromRole="ProductGallery" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductProperty">
+          <Key>
+            <PropertyRef Name="ProductPropertyID" />
+          </Key>
+          <Property Name="ProductPropertyID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Discription" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_ProductProperty_Product" FromRole="ProductProperty" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="ProductType">
+          <Key>
+            <PropertyRef Name="ProductTypeId" />
+          </Key>
+          <Property Name="ProductTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="languageType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="languageType1" Relationship="Self.FK_ProductType_ProductType" FromRole="ProductType" ToRole="languageType" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_ProductType" FromRole="ProductType" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="RowFactor">
+          <Key>
+            <PropertyRef Name="RowFactorID" />
+          </Key>
+          <Property Name="RowFactorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="FactorID" Type="Int32" />
+          <Property Name="Lenght" Type="Double" />
+          <Property Name="Width" Type="Double" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="RowSalary" Type="Double" Nullable="false" />
+          <Property Name="RowDiscription" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Factor" Relationship="Self.FK_RowFactor_Factor" FromRole="RowFactor" ToRole="Factor" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_RowFactor_Product" FromRole="RowFactor" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="Service">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salary" Type="Double" Nullable="false" />
+          <NavigationProperty Name="FactorAndService" Relationship="Self.FK_FactorAndService_Service" FromRole="Service" ToRole="FactorAndService" />
+        </EntityType>
+        <EntityType Name="Slider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="350" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SubTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subtitle1" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Subtitle2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="languageType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="languageType1" Relationship="Self.FK_Slider_languageType" FromRole="Slider" ToRole="languageType" />
+        </EntityType>
+        <EntityType Name="UnitType">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Product_UnitType" FromRole="UnitType" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factor_Factor">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Factor" Type="Self.Factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="AspNetUsersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttachmentFactor_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="0..1" />
+          <End Role="AttachmentFactor" Type="Self.AttachmentFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="AttachmentFactor">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Factor_Factor1">
+          <End Role="FactorState" Type="Self.FactorState" Multiplicity="1" />
+          <End Role="Factor" Type="Self.Factor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FactorState">
+              <PropertyRef Name="FactorStateID" />
+            </Principal>
+            <Dependent Role="Factor">
+              <PropertyRef Name="FactorStateID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactorAndService_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="1" />
+          <End Role="FactorAndService" Type="Self.FactorAndService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="FactorAndService">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RowFactor_Factor">
+          <End Role="Factor" Type="Self.Factor" Multiplicity="0..1" />
+          <End Role="RowFactor" Type="Self.RowFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Factor">
+              <PropertyRef Name="FactorID" />
+            </Principal>
+            <Dependent Role="RowFactor">
+              <PropertyRef Name="FactorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FactorAndService_Service">
+          <End Role="Service" Type="Self.Service" Multiplicity="1" />
+          <End Role="FactorAndService" Type="Self.FactorAndService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Service">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="FactorAndService">
+              <PropertyRef Name="ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OurWorkGalleryType_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="OurWorkGalleryType" Type="Self.OurWorkGalleryType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OurWorkGalleryType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Partner_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="Partner" Type="Self.Partner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Partner">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PostType_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="PostType" Type="Self.PostType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="PostType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductType_ProductType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ProductType">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Slider_languageType">
+          <End Role="languageType" Type="Self.languageType" Multiplicity="1" />
+          <End Role="Slider" Type="Self.Slider" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="languageType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Slider">
+              <PropertyRef Name="languageType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OurWorkGallery_OurWorkGalleryType">
+          <End Role="OurWorkGalleryType" Type="Self.OurWorkGalleryType" Multiplicity="1" />
+          <End Role="OurWorkGallery" Type="Self.OurWorkGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OurWorkGalleryType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="OurWorkGallery">
+              <PropertyRef Name="OurWorkGalleryTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Post_PostType">
+          <End Role="PostType" Type="Self.PostType" Multiplicity="0..1" />
+          <End Role="Post" Type="Self.Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PostType">
+              <PropertyRef Name="PostTypeID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="PostTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_ProductType">
+          <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductType">
+              <PropertyRef Name="ProductTypeId" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="ProductTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_UnitType">
+          <End Role="UnitType" Type="Self.UnitType" Multiplicity="1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UnitType">
+              <PropertyRef Name="UnitID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="UnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGallery_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductGallery" Type="Self.ProductGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductGallery">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductProperty_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductProperty" Type="Self.ProductProperty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="ProductProperty">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RowFactor_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="RowFactor" Type="Self.RowFactor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="ProductID" />
+            </Principal>
+            <Dependent Role="RowFactor">
+              <PropertyRef Name="ProductID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="DoormatWebSiteEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="AttachmentFactor" EntityType="Self.AttachmentFactor" />
+          <EntitySet Name="Factor" EntityType="Self.Factor" />
+          <EntitySet Name="FactorAndService" EntityType="Self.FactorAndService" />
+          <EntitySet Name="FactorState" EntityType="Self.FactorState" />
+          <EntitySet Name="languageType" EntityType="Self.languageType" />
+          <EntitySet Name="OurWorkGallery" EntityType="Self.OurWorkGallery" />
+          <EntitySet Name="OurWorkGalleryType" EntityType="Self.OurWorkGalleryType" />
+          <EntitySet Name="Partner" EntityType="Self.Partner" />
+          <EntitySet Name="Post" EntityType="Self.Post" />
+          <EntitySet Name="PostType" EntityType="Self.PostType" />
+          <EntitySet Name="Product" EntityType="Self.Product" />
+          <EntitySet Name="ProductGallery" EntityType="Self.ProductGallery" />
+          <EntitySet Name="ProductProperty" EntityType="Self.ProductProperty" />
+          <EntitySet Name="ProductType" EntityType="Self.ProductType" />
+          <EntitySet Name="RowFactor" EntityType="Self.RowFactor" />
+          <EntitySet Name="Service" EntityType="Self.Service" />
+          <EntitySet Name="Slider" EntityType="Self.Slider" />
+          <EntitySet Name="UnitType" EntityType="Self.UnitType" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factor_Factor" Association="Self.FK_Factor_Factor">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Factor" EntitySet="Factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_AspNetUsers" Association="Self.FK_Post_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_AspNetUsers" Association="Self.FK_Product_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttachmentFactor_Factor" Association="Self.FK_AttachmentFactor_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="AttachmentFactor" EntitySet="AttachmentFactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Factor_Factor1" Association="Self.FK_Factor_Factor1">
+            <End Role="FactorState" EntitySet="FactorState" />
+            <End Role="Factor" EntitySet="Factor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactorAndService_Factor" Association="Self.FK_FactorAndService_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="FactorAndService" EntitySet="FactorAndService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RowFactor_Factor" Association="Self.FK_RowFactor_Factor">
+            <End Role="Factor" EntitySet="Factor" />
+            <End Role="RowFactor" EntitySet="RowFactor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FactorAndService_Service" Association="Self.FK_FactorAndService_Service">
+            <End Role="Service" EntitySet="Service" />
+            <End Role="FactorAndService" EntitySet="FactorAndService" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OurWorkGalleryType_languageType" Association="Self.FK_OurWorkGalleryType_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="OurWorkGalleryType" EntitySet="OurWorkGalleryType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Partner_languageType" Association="Self.FK_Partner_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="Partner" EntitySet="Partner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PostType_languageType" Association="Self.FK_PostType_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="PostType" EntitySet="PostType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductType_ProductType" Association="Self.FK_ProductType_ProductType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="ProductType" EntitySet="ProductType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Slider_languageType" Association="Self.FK_Slider_languageType">
+            <End Role="languageType" EntitySet="languageType" />
+            <End Role="Slider" EntitySet="Slider" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OurWorkGallery_OurWorkGalleryType" Association="Self.FK_OurWorkGallery_OurWorkGalleryType">
+            <End Role="OurWorkGalleryType" EntitySet="OurWorkGalleryType" />
+            <End Role="OurWorkGallery" EntitySet="OurWorkGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Post_PostType" Association="Self.FK_Post_PostType">
+            <End Role="PostType" EntitySet="PostType" />
+            <End Role="Post" EntitySet="Post" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
+            <End Role="ProductType" EntitySet="ProductType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_UnitType" Association="Self.FK_Product_UnitType">
+            <End Role="UnitType" EntitySet="UnitType" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGallery_Product" Association="Self.FK_ProductGallery_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductGallery" EntitySet="ProductGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductProperty_Product" Association="Self.FK_ProductProperty_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductProperty" EntitySet="ProductProperty" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RowFactor_Product" Association="Self.FK_RowFactor_Product">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="RowFactor" EntitySet="RowFactor" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DoormatWebSiteModelStoreContainer" CdmEntityContainer="DoormatWebSiteEntities1">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.AspNetUserClaims">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.AspNetUserLogins">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttachmentFactor">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.AttachmentFactor">
+              <MappingFragment StoreEntitySet="AttachmentFactor">
+                <ScalarProperty Name="AttachmentFactorID" ColumnName="AttachmentFactorID" />
+                <ScalarProperty Name="AttachmentDiscription" ColumnName="AttachmentDiscription" />
+                <ScalarProperty Name="FileAttach" ColumnName="FileAttach" />
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Factor">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Factor">
+              <MappingFragment StoreEntitySet="Factor">
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+                <ScalarProperty Name="AspNetUserID" ColumnName="AspNetUserID" />
+                <ScalarProperty Name="TotalSalary" ColumnName="TotalSalary" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="FactorStateID" ColumnName="FactorStateID" />
+                <ScalarProperty Name="FactorDiscription" ColumnName="FactorDiscription" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="ArzeshAfzodeh" ColumnName="ArzeshAfzodeh" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactorAndService">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.FactorAndService">
+              <MappingFragment StoreEntitySet="FactorAndService">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FactorState">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.FactorState">
+              <MappingFragment StoreEntitySet="FactorState">
+                <ScalarProperty Name="FactorStateID" ColumnName="FactorStateID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="languageType">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.languageType">
+              <MappingFragment StoreEntitySet="languageType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurWorkGallery">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.OurWorkGallery">
+              <MappingFragment StoreEntitySet="OurWorkGallery">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="OurWorkGalleryTypeId" ColumnName="OurWorkGalleryTypeId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OurWorkGalleryType">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.OurWorkGalleryType">
+              <MappingFragment StoreEntitySet="OurWorkGalleryType">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="languageType" ColumnName="languageType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partner">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Partner">
+              <MappingFragment StoreEntitySet="Partner">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumer" ColumnName="PhoneNumer" />
+                <ScalarProperty Name="PhoneNumer2" ColumnName="PhoneNumer2" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="languageType" ColumnName="languageType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Post">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Post">
+              <MappingFragment StoreEntitySet="Post">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="PostTitle" ColumnName="PostTitle" />
+                <ScalarProperty Name="PostText" ColumnName="PostText" />
+                <ScalarProperty Name="PostTypeID" ColumnName="PostTypeID" />
+                <ScalarProperty Name="PostShortDiscription" ColumnName="PostShortDiscription" />
+                <ScalarProperty Name="PostDate" ColumnName="PostDate" />
+                <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+                <ScalarProperty Name="AspNetUsersID" ColumnName="AspNetUsersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PostType">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.PostType">
+              <MappingFragment StoreEntitySet="PostType">
+                <ScalarProperty Name="PostTypeID" ColumnName="PostTypeID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="languageType" ColumnName="languageType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+                <ScalarProperty Name="AspNetUserID" ColumnName="AspNetUserID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ShortDiscription" ColumnName="ShortDiscription" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="PicThumbnail" ColumnName="PicThumbnail" />
+                <ScalarProperty Name="KeyWord" ColumnName="KeyWord" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="UnitSalary" ColumnName="UnitSalary" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductGallery">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.ProductGallery">
+              <MappingFragment StoreEntitySet="ProductGallery">
+                <ScalarProperty Name="ProductGalleryID" ColumnName="ProductGalleryID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductProperty">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.ProductProperty">
+              <MappingFragment StoreEntitySet="ProductProperty">
+                <ScalarProperty Name="ProductPropertyID" ColumnName="ProductPropertyID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Discription" ColumnName="Discription" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductType">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.ProductType">
+              <MappingFragment StoreEntitySet="ProductType">
+                <ScalarProperty Name="ProductTypeId" ColumnName="ProductTypeId" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="languageType" ColumnName="languageType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RowFactor">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.RowFactor">
+              <MappingFragment StoreEntitySet="RowFactor">
+                <ScalarProperty Name="RowFactorID" ColumnName="RowFactorID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="FactorID" ColumnName="FactorID" />
+                <ScalarProperty Name="Lenght" ColumnName="Lenght" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="RowSalary" ColumnName="RowSalary" />
+                <ScalarProperty Name="RowDiscription" ColumnName="RowDiscription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Service">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Service">
+              <MappingFragment StoreEntitySet="Service">
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Slider">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.Slider">
+              <MappingFragment StoreEntitySet="Slider">
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="SubTitle" ColumnName="SubTitle" />
+                <ScalarProperty Name="Subtitle1" ColumnName="Subtitle1" />
+                <ScalarProperty Name="Subtitle2" ColumnName="Subtitle2" />
+                <ScalarProperty Name="languageType" ColumnName="languageType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UnitType">
+            <EntityTypeMapping TypeName="DoormatWebSiteModel.UnitType">
+              <MappingFragment StoreEntitySet="UnitType">
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="DoormatWebSiteModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

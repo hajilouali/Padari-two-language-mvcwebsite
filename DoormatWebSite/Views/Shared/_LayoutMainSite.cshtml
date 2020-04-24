@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="@System.Globalization.CultureInfo.CurrentCulture.Name">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="@ViewBag.Discription" />
+    <meta name="keywords" content="@ViewBag.KeyWord" />
+    <title>@ViewBag.SiteName - @ViewBag.Discription @ViewBag.Title</title>
+
+    <link href="~/Areas/Admin/dist/css/icons/flag-icon-css/flag-icon.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/Content/assets/css/webfonts.css">
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+    {
+        <link rel="stylesheet" href="/Content/assets/css/bootstrap.min.fa.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="/Content/assets/css/bootstrap.min.css">
+    }
+    <link rel="stylesheet" href="/Content/assets/css/plugins.min.css">
+    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+    {
+        <link rel="stylesheet" href="/Content/assets/css/style-fa.css">
+    }
+    else
+    {
+        <link rel="stylesheet" href="/Content/assets/css/style.css">
+    }
+    <link rel="stylesheet" href="/Content/assets/css/color.css">
+    <link rel="stylesheet" href="/Content/assets/css/responsive.css">
+
+    @RenderSection("Header", required: false)
+</head>
+<body itemscope>
+    <main>
+        @Html.Action("Header", "Home")
+        @RenderBody()
+        @Html.Action("FoteResult", "Home")
+        @Html.Action("copywrite", "Home")
+    </main>
+    <script src="/Content/assets/js/jquery.min.js"></script>
+    <script src="/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="/Content/assets/js/plugins.min.js"></script>
+    <script src="/Content/assets/js/part-int.js"></script>
+    <script src="/Content/assets/js/custom-scripts.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

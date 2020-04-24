@@ -1,0 +1,49 @@
+﻿@model DoormatWebSite.Models.Model.ourClientsText
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h3>@DoormatWebSite.Areas.Admin.Resource.Admin.warningDelete</h3>
+        <div>
+            
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.text)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.text)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.languageType.Type)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.languageType.Type)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="@DoormatWebSite.Areas.Admin.Resource.Admin.Delete" class="btn btn-default" /> |
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model DoormatWebSite.Models.Model.Slider
+@{
+    Layout = null;
+}
+
+
+<h3> @DoormatWebSite.Areas.Admin.Resource.Admin.warningDelete</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                <img src="/PageImages/@Model.Image" class="thumbnail" style="max-width: 150px" />
+            </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SubTitle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SubTitle)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subtitle1)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subtitle1)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Subtitle2)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subtitle2)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.languageType.Type)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.languageType.Type)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="@DoormatWebSite.Areas.Admin.Resource.Admin.Delete" class="btn btn-default" /> |
+            </div>
+        }
+    </div>

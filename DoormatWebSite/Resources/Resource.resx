@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutUs" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>No49, GolPar Alley , Motahari st , Emamzadeh Blv , Qods City , Tehran , Iran</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Doormat</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="menuAntiSlips" xml:space="preserve">
+    <value>Anti Slips</value>
+  </data>
+  <data name="menuBlog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="menuContactUS" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="MenuMatts" xml:space="preserve">
+    <value>Matts</value>
+  </data>
+  <data name="menuOtherProducts" xml:space="preserve">
+    <value>Other Products</value>
+  </data>
+  <data name="menuParkingPakage" xml:space="preserve">
+    <value>Parking Pakage</value>
+  </data>
+  <data name="MenuProducts" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>+(98)2146891581</value>
+  </data>
+  <data name="SearchPlaceHolder" xml:space="preserve">
+    <value>Search your keywords...</value>
+  </data>
+  <data name="TimeWork" xml:space="preserve">
+    <value>Saturday to Thursday from 8:00 to 17:00</value>
+  </data>
+  <data name="MoreServices" xml:space="preserve">
+    <value>More Services</value>
+  </data>
+  <data name="ourServiceDiscription" xml:space="preserve">
+    <value>Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donecullamcorper nulla non metus auctor fringilla.</value>
+  </data>
+  <data name="OURSERVICES" xml:space="preserve">
+    <value>OUR SERVICES</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
+  <data name="WhatWeDoForYou" xml:space="preserve">
+    <value>What We Do For You</value>
+  </data>
+  <data name="AmazingProjects" xml:space="preserve">
+    <value>Amazing Projects</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next&gt;</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Pre</value>
+  </data>
+  <data name="SloganDiscription" xml:space="preserve">
+    <value>Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla.</value>
+  </data>
+  <data name="sloganTitle" xml:space="preserve">
+    <value>Doormat first choice of customers</value>
+  </data>
+  <data name="Happyclients" xml:space="preserve">
+    <value>Happy clients</value>
+  </data>
+  <data name="HappyclientsNumber" xml:space="preserve">
+    <value>5440</value>
+  </data>
+  <data name="HappyclientsSubtitle" xml:space="preserve">
+    <value>Every week</value>
+  </data>
+  <data name="BackeryProducts" xml:space="preserve">
+    <value>Backery products</value>
+  </data>
+  <data name="BackeryProductsNumber" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="BackeryProductsSubTitle" xml:space="preserve">
+    <value>Available</value>
+  </data>
+  <data name="Partnerstores" xml:space="preserve">
+    <value>Partner stores</value>
+  </data>
+  <data name="PartnerstoresNumber" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="PartnerstoresSubTitle" xml:space="preserve">
+    <value>From the whole state</value>
+  </data>
+  <data name="Yearexperience" xml:space="preserve">
+    <value>Year experience</value>
+  </data>
+  <data name="YearexperienceNumber" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="YearexperienceSubTitle" xml:space="preserve">
+    <value>Trusted manufacturer</value>
+  </data>
+  <data name="PURCHASENOW" xml:space="preserve">
+    <value>PURCHASE NOW</value>
+  </data>
+  <data name="VideoWarpText" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquam sagittis ex, ac finibus lectus lacinia a. Mauris non ligula nec libero finibus blandit. Vestibulum volutpat sagittis dolor nec euismod. Vivamus in scelerisque elit. Donec odio orci, placerat non leo ac, mollis pellentesque est. Etiam sit amet imperdiet tellus.</value>
+  </data>
+  <data name="VideoWarpTitle" xml:space="preserve">
+    <value>Check &lt;i class="theme-clr"&gt;Video Presentation to&lt;/i&gt; find out More About us</value>
+  </data>
+  <data name="CONTACTUS" xml:space="preserve">
+    <value>CONTACT US</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="GetInTouch" xml:space="preserve">
+    <value>Get In Touch</value>
+  </data>
+  <data name="intermail" xml:space="preserve">
+    <value>Please Enter valid mail</value>
+  </data>
+  <data name="intertext" xml:space="preserve">
+    <value>Please Enter valid text</value>
+  </data>
+  <data name="Message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Recaptcha" xml:space="preserve">
+    <value>Recaptcha</value>
+  </data>
+  <data name="SUBMITNOW" xml:space="preserve">
+    <value>SUBMIT NOW</value>
+  </data>
+  <data name="Callusanytime" xml:space="preserve">
+    <value>Call us anytime</value>
+  </data>
+  <data name="InWorkTime" xml:space="preserve">
+    <value>In Work Time</value>
+  </data>
+  <data name="Loginonsite" xml:space="preserve">
+    <value>Login on site</value>
+  </data>
+  <data name="WorkingHours" xml:space="preserve">
+    <value>Working Hours:</value>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>&amp;copy; All Rights Reserved</value>
+  </data>
+  <data name="FromBlogWebsite" xml:space="preserve">
+    <value>From Blog Website</value>
+  </data>
+  <data name="LATESTPost" xml:space="preserve">
+    <value>LATEST Post</value>
+  </data>
+  <data name="interfile" xml:space="preserve">
+    <value>please send file </value>
+  </data>
+  <data name="SHARE" xml:space="preserve">
+    <value>SHARE :</value>
+  </data>
+  <data name="TAGS" xml:space="preserve">
+    <value>TAGS :</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="LatestPosts" xml:space="preserve">
+    <value>Latest Posts</value>
+  </data>
+</root>

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.ProductType>
+
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-wrapper">
+    <!-- sample modal content -->
+    <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="myModalLabel">×</button>
+                </div>
+                <div class="modal-body" id="myModalBody">
+                    <form></form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal -->
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <p>
+                    <a class="btn btn-success" style="color: white" data-toggle="modal" data-target="#responsive-modal" id="btnNewGroup">@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew</a>
+                </p>
+                <table class="table table-bordered table-hover toggle-circle footable-loaded footable tablet breakpoint">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.languageType.Type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Title)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+
+                    <tbody class="border border-primary">
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.languageType.Type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Title)
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-warning" data-toggle="modal" data-target="#responsive-modal" onclick="editGroup(@item.ProductTypeId)">
+                                        <i class="far fa-edit"></i>
+                                    </a>
+                                    <a class="btn btn-sm btn-danger" data-toggle="modal" data-target="#responsive-modal" onclick="deleteGroup(@item.ProductTypeId)">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $("#btnNewGroup").click(function() {
+
+            $.get("/Admin/ProductTypes/Create", function(result) {
+
+                $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.CreateNew');
+                $("#myModalBody").html(result);
+            });
+
+        });
+
+        function editGroup(id) {
+            $.get("/Admin/ProductTypes/Edit/" + id, function(result) {
+
+                $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.Edit');
+                $("#myModalBody").html(result);
+            });
+        }
+
+
+        function deleteGroup(id) {
+            $.get("/Admin/ProductTypes/Delete/" + id, function(result) {
+
+                $("#myModalLabel").html('@DoormatWebSite.Areas.Admin.Resource.Admin.Delete');
+                $("#myModalBody").html(result);
+            });
+        }
+
+    </script>
+}

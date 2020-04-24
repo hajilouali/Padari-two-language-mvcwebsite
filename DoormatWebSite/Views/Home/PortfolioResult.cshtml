@@ -1,0 +1,91 @@
+﻿@using System.Runtime.InteropServices
+@using System.Text.RegularExpressions
+@using PagedList.Mvc
+@model PagedList.IPagedList<DoormatWebSite.Models.Model.OurWorkGallery>
+
+<div class="prjcts-wrp text-center">
+    <div class="prjcts-inr theme-bg">
+        <ul class="fltr-btns">
+            <li class="@(ViewBag.CurrentSearch==null?"active":"") "><a btnName="FilterCustomer" data-filter="*" href="/Home/PortfolioResult" itemprop="url">@ViewBag.CuntportfolioTitleAll</a></li>
+            @foreach (var item in ViewBag.titeList)
+            {
+                <li><a class="@(ViewBag.CurrentSearch==item?"active":"")" btnName="FilterCustomer"  data-filter=".@Regex.Replace(item,@"\s", "")" href="/Home/PortfolioResult?search=@item" itemprop="url">@item</a></li>
+            }
+        </ul><!-- Filter Buttons -->
+        <div class="fltr-dta">
+            <div class="row masonry mrg">
+                
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-2 col-sm-12 col-lg-2 fltr-itm @Regex.Replace(item.OurWorkGalleryType.Title,@"\s", "")">
+                        <div class="prtfl-bx text-center">
+                            <img src="/PageImages/@item.Image" alt="@item.Name" itemprop="image">
+                            <div class="prtfl-inf">
+                                <div class="prtfl-inf-btns">
+                                    <a class="brd-rd50" data-fancybox="gallery" href="/PageImages/@item.Image" title="" itemprop="url"><i class="fa fa-search"></i></a>
+                                </div>
+                                <h4 itemprop="headline"><a @*href=""*@ title="" itemprop="url">@item.Name</a></h4>
+                                
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="pagi-wrp text-center" id="myPager">
+            @Html.PagedListPager(Model, page => Url.Action("PortfolioResult", new { page, search = ViewBag.CurrentSearch }),new PagedListRenderOptions { LinkToFirstPageFormat = "<< Primera", LinkToPreviousPageFormat = DoormatWebSite.Resources.Resource.Previous, LinkToNextPageFormat = DoormatWebSite.Resources.Resource.Next, LinkToLastPageFormat = "&Uacute;ltima >>" })
+            @*@Html.PagedListPager(Model, page => Url.Action("PortfolioResult", new { page, search = ViewBag.CurrentSearch }))*@
+
+            @*<ul class="pagination " style="background-color: aliceblue; border-radius: 5px; margin-bottom: 0; padding-bottom: 0; max-height: 54px;">
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url"><i class="fa fa-angle-left"></i> PREVIOUS</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">1</a></li>
+            <li class="page-item active brd-rd3" style="background-color: #fab702"><span>2</span></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">3</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">4</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">5</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">6</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">7</a></li>
+            <li class="page-item brd-rd3"><a class="page-link" href="#" title="" itemprop="url">NEXT <i class="fa fa-angle-right"></i></a></li>*@
+        @*</ul>*@
+        </div>
+    </div>
+</div><!-- Projects Wrap -->
+
+<script type="text/javascript">
+    $(function () {
+        $.ajaxSetup({ cache: false });
+        $("a[btnName=FilterCustomer]").click(function (e) {
+            e.preventDefault();
+            var search = $("a[btnName=FilterCustomer]").click.html;
+            //var search = $('input[name=search]').val();
+            this.href = this.href.replace('xyz', search);
+            $('#contentFrame').mask("waiting ...");
+            $.ajax({
+                url: this.href,
+                type: 'POST',
+                cache: false,
+                success: function (result) {
+                    $('#contentFrame').unmask("waiting ...");
+                    $('#contentFrame').html(result);
+                }
+
+            });
+        });
+        $('#myPager').on('click', 'a', function (e) {
+            e.preventDefault();
+            $('#contentFrame').mask("waiting ...");
+            $.ajax({
+                url: this.href,
+                type: 'GET',
+                cache: false,
+                success: function (result) {
+                    $('#contentFrame').unmask("waiting ...");
+                    $('#contentFrame').html(result);
+
+                }
+            });
+
+        });
+
+    });
+</script>

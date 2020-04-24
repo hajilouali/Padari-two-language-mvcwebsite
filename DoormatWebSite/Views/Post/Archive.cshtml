@@ -1,0 +1,96 @@
+﻿@using DoormatWebSite.Tools
+@model IEnumerable<DoormatWebSite.Models.Model.Post>
+@{
+    ViewBag.Title = "Archive";
+    Layout = "~/Views/Shared/_LayoutMainSite.cshtml";
+}
+
+<section>
+    <div class="spacing black-layer3 opc8">
+        <div class="fixed-bg" style="background-image: url(/PageImages/@ViewBag.backgrand);"></div>
+        <div class="container">
+            <div class="pg-tp-wrp text-center">
+                <div class="pg-tp-inr">
+                    <h1 itemprop="headline">Our Blog </h1>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/" title="" itemprop="url">@DoormatWebSite.Resources.Resource.Home</a></li>
+                        <li class="breadcrumb-item active">@DoormatWebSite.Resources.Resource.menuBlog</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="spacing">
+        <div class="container">
+            <div class="remove-ext5">
+                <div class="row">
+                    @foreach (var itam in Model)
+                    {
+                        <div class="col-md-4 col-sm-6 col-lg-4">
+                            <div class="post-bx text-center">
+                                <div class="post-thumb hrz brd-rd3">
+                                    <a href="/Posts/@itam.PostType.Title/@itam.PostTitle" title="" itemprop="url"><img style="width: 380px;height: 244px" src="/PageImages/@itam.PostImage" alt="@itam.PostTitle" itemprop="image"></a>
+                                </div>
+                                <div class="post-info">
+                                    <h4 itemprop="headline"><a href="/Posts/@itam.PostType.Title/@itam.PostTitle" title="" itemprop="url">@itam.PostTitle</a></h4>
+                                    <ul class="post-meta">
+                                        @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                                        {
+                                            <li><a href="/Post/Postsearch?search=@itam.AspNetUsers.UserName" title="" itemprop="url">@itam.AspNetUsers.UserName</a>توسط </li>
+                                            <li>@Convert.ToString(itam.PostDate.toshamsi()) <a href="/Post/Postsearch?search=@itam.PostType.Title" title="" itemprop="url">@itam.PostType.Title</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li>By <a href="/Post/Postsearch?search=@itam.AspNetUsers.UserName" title="" itemprop="url">@itam.AspNetUsers.UserName</a></li>
+                                            <li>@Convert.ToString(itam.PostDate.ToString("MMMM dd yyyy")) in <a href="/Post/Postsearch?search=@itam.PostType.Title" title="" itemprop="url">@itam.PostType.Title</a></li>
+                                        }
+
+                                    </ul>
+                                    <p itemprop="description">@Html.Raw(itam.PostShortDiscription)</p>
+                                    <a class="theme-btn hrz brd-rd3 theme-bf-bg" href="/Posts/@itam.PostType.Title/@itam.PostTitle" title="" itemprop="url">@DoormatWebSite.Resources.Resource.ReadMore</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="pagi-wrp text-center">
+                <ul class="pagination">
+                    @if ((int)ViewBag.PageID != 1)
+                    {
+                        <li class="page-item brd-rd3"><a class="page-link" href="/Posts?pageid=@(((int)ViewBag.PageID)-1)" title="" itemprop="url"><i class="fa fa-angle-left"></i> PREVIOUS</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item brd-rd3"></li>
+                    }
+
+                    @for (int i = 1; i <= (ViewBag.PageCount); i++)
+                    {
+                        if ((int)ViewBag.PageID == i)
+                        {
+                            <li class="page-item brd-rd3 active"><span>@i</span></li>
+                        }
+                        else
+                        {
+                            <li class="page-item brd-rd3"><a class="page-link" href="/Posts?pageid=@i" title="" itemprop="url">@i</a></li>
+                        }
+
+                    }
+                    @if (ViewBag.PageCount - (int)ViewBag.PageID != 0)
+                    {
+                        <li class="page-item brd-rd3"><a class="page-link" href="/Posts?pageid=@((int)ViewBag.PageID+1)" title="" itemprop="url">NEXT <i class="fa fa-angle-right"></i></a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item brd-rd3"></li>
+                    }
+                </ul>
+
+            </div><!-- Pagination Wrap -->
+        </div>
+    </div>
+</section>
+

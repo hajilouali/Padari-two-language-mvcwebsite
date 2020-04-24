@@ -1,0 +1,50 @@
+﻿@using DoormatWebSite.Tools
+@model IEnumerable<DoormatWebSite.Models.Model.Post>
+<footer>
+    <div class="spacing drk-bg top-spac80 bottom-spac80">
+        <div class="container">
+            <div class="ftr-wrp remove-ext5">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-lg-4">
+                        <div class="wdgt abt-wdgt">
+                            <div class="logo"><a href="/" title="" itemprop="url"><img src="/PageImages/@ViewBag.logo" alt="logo" itemprop="image"></a></div>
+                            <p itemprop="description">@ViewBag.aboutus</p>
+                            <a href="/about" title="" itemprop="headline">@DoormatWebSite.Resources.Resource.AboutUs</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-lg-4">
+                        <div class="wdgt">
+                            <h4 itemprop="headline" class="wdgt-tl">Recent Post</h4>
+                            @foreach (var item in Model)
+                            {
+                                <div class="rcnt-itm">
+                                    <h4 itemprop="headline"><a href="/posts/@item.PostType.Title/@item.PostTitle" title="@item.PostTitle" itemprop="url">@item.PostTitle</a></h4>
+                                    <ul class="post-meta">
+                                        <li><i class="fa fa-clock-o theme-clr"></i>@(System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa")?item.PostDate.toshamsi(): item.PostDate.ToString("MMMM dd yyyy"))</li>
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-lg-4">
+                        <div class="wdgt">
+                            <h4 itemprop="headline" class="wdgt-tl">Our Contacts</h4>
+                            <p itemprop="description"></p>
+                            <ul class="ft-cnt-lst">
+                                <li><strong>Address:</strong> @ViewBag.address</li>
+                                <li><strong>Phone:</strong> @ViewBag.Number1 <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; @ViewBag.number2</li>
+                                <li><strong>Mobile:</strong> @ViewBag.mobile</li>
+                            </ul>
+                            <div class="scl-lnks">
+                                <a class="brd-rd50" href="@ViewBag.Telegram" title="Telegram" itemprop="url" target="_blank"><i class="fa fa-telegram"></i></a>
+                                <a class="brd-rd50" href="@ViewBag.Facebook" title="Facebook" itemprop="url" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a class="brd-rd50" href="@ViewBag.Instagram" title="Instagram" itemprop="url" target="_blank"><i class="fa fa-instagram"></i></a>
+                                <a class="brd-rd50" href="@ViewBag.googleplus" title="Google Plus" itemprop="url" target="_blank"><i class="fa fa-google-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Footer Wrap -->
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,35 @@
+﻿
+@{
+                /**/
+
+                ViewBag.Title = "Index";
+                Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@section header{
+
+    <link href="~/Areas/Admin/assets/libs/dropzone/dist/min/dropzone.min.css" rel="stylesheet" />
+}
+<div class="page-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Dropzone</h4>
+                            <h6 class="card-subtitle">For multiple file upload put class <code>.dropzone</code> to form.</h6>
+                            <form action="/Admin/testdrup/drup" class="dropzone">
+                                <div class="fallback">
+                                    <input name="files" type="file" multiple />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/Areas/Admin/assets/libs/dropzone/dist/min/dropzone.min.js"></script>
+
+

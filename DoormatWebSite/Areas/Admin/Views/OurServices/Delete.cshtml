@@ -1,0 +1,61 @@
+﻿@model DoormatWebSite.Models.Model.OurService
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = null;
+}
+
+<h2>@DoormatWebSite.Areas.Admin.Resource.Admin.warningDelete</h2>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            <img src="/PageImages/@Model.image" class="thumbnail" style="max-width: 150px" />
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subtitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subtitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.languageType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.languageType.Type)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="@DoormatWebSite.Areas.Admin.Resource.Admin.Delete" class="btn btn-default" /> |
+        </div>
+    }
+</div>

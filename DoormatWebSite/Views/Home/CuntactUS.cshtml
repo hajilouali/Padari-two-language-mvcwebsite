@@ -1,0 +1,90 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.Partner>
+
+<section>
+    <div class="spacing">
+        <div class="fixed-bg" style="background-image: url(/Content/assets/images/parlx3.jpg);"></div>
+        <div class="container">
+            <div class="get-tuch-wrp">
+                <div class="row">
+                    <div class="col-md-7 col-sm-12 col-lg-7">
+                        <div class="sec-tl2 wht-clr text-center">
+                            <i>@DoormatWebSite.Resources.Resource.CONTACTUS</i>
+                            <h2 class="no-bf" itemprop="headline">@DoormatWebSite.Resources.Resource.GetInTouch</h2>
+                        </div>
+                        <div class="cnt-frm-wrp text-center">
+                            
+                                <form action="/Home/Index" method="post">
+                                    <div class="row mrg20">
+                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                            <input  required type="text" placeholder="@DoormatWebSite.Resources.Resource.Name" class="brd-rd3" name="Name" oninvalid="this.setCustomValidity('@DoormatWebSite.Resources.Resource.intertext')" oninput="setCustomValidity('')">
+                                            
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-lg-6">
+                                            <input  required="" type="email" placeholder="@DoormatWebSite.Resources.Resource.Email" class="brd-rd3" name="Email" oninvalid="this.setCustomValidity('@DoormatWebSite.Resources.Resource.intermail')" oninput="setCustomValidity('')">
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                            <textarea required="" placeholder="Message" class="brd-rd3" name="@DoormatWebSite.Resources.Resource.Message" oninvalid="this.setCustomValidity('@DoormatWebSite.Resources.Resource.intertext')" oninput="setCustomValidity('')"></textarea>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 col-lg-4 text-center">
+                                            <label class="control-label col-md-2">@DoormatWebSite.Resources.Resource.Recaptcha</label>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-lg-8">
+                                            <div class="brd-rd3">
+                                                <div class="g-recaptcha" data-sitekey="6LcrI3oUAAAAABT2T4LcbdgBiBLpJwRmzpiNSRpG"></div>
+                                                <span class="text-danger">@ViewBag.Message</span>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-md-12 col-sm-12 col-lg-12">
+                                            <button id="myPager" class="theme-btn hrz brd-rd3 theme-bf-bg" type="submit">@DoormatWebSite.Resources.Resource.SUBMITNOW</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12 col-lg-5">
+                        <div class="cnt-inf-wrp cnt-inf-car owl-carousel theme-bg">
+                            @foreach (var item in Model)
+                            {
+                                <div class="cnt-inf-itm">
+                                    <h4 itemprop="headline">@item.Title</h4>
+                                    <h5 itemprop="headline">@item.City</h5>
+                                    <ul class="cnt-inf-lst">
+                                        <li><i class="fa fa-map-marker"></i> @item.Address</li>
+                                        <li><i class="fa fa-phone"></i> @item.PhoneNumer</li>
+                                        @if (string.IsNullOrEmpty(item.PhoneNumer2) != true)
+                                        {
+                                            <li><i class="fa fa-phone"></i> @item.PhoneNumer2</li>
+                                        }
+                                        @if (string.IsNullOrEmpty(item.Mobile) != true)
+                                        {
+                                            <li><i class="fa fa-mobile"></i>@item.Mobile</li>
+                                        }
+                                    </ul>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Get In Touch Wrap -->
+        </div>
+    </div>
+</section>
+@*<script type="text/javascript">
+    $('#myPager').onClick(function (e) {
+        e.preventDefault();
+        $('#contentFrame1').mask("waiting ...");
+        $.ajax({
+            url: this.href,
+            type: 'GET',
+            cache: false,
+            success: function (result) {
+                $('#contentFrame1').unmask("waiting ...");
+                $('#contentFrame1').html(result);
+
+            }
+        });
+
+    });
+</script>*@

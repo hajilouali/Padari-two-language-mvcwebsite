@@ -1,0 +1,42 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.Plan>
+<section>
+    <div class="spacing top-spac90 bottom-spac80">
+        <div class="fixed-bg" style="background-image: url(/PageImages/@ViewBag.Backgrand);"></div>
+        <div id="prtcl1" class="particle-bx"></div>
+        <div class="container">
+            <div class="choose-plan-wrap">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-lg-8">
+                        <div class="choose-car overlap150 overlap-160 owl-carousel nav-vc">
+                            @foreach (var item in Model)
+                            {
+                                <div class="plan-bx theme-bf-bg brd-rd20 text-center">
+                                    <div class="plan-hdr">
+                                        <i class="@item.Icon"></i>
+                                        <h6 itemprop="headline">@item.Title</h6>
+                                        <span >@Html.Raw(item.Subtitle)</span>
+                                    </div>
+                                    <div class="plan-bdy">
+                                        <ul class="pln-fctr-lst">
+                                            @foreach (var it in item.Discription.Split('/'))
+                                            {
+                                                <li>@it</li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+                        </div><!-- Choose Carousel -->
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-lg-4">
+                        <div class="sec-tl1" >
+                            <h2 itemprop="headline">@DoormatWebSite.Resources.Resource.sloganTitle</h2>
+                            <p itemprop="description">@DoormatWebSite.Resources.Resource.SloganDiscription</p>
+                            <a class="theme-btn hrz theme-bg brd-rd3" href="@ViewBag.URL" title="" itemprop="url">@DoormatWebSite.Resources.Resource.ReadMore</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- Choose Plan Wrap -->
+        </div>
+    </div>
+</section>

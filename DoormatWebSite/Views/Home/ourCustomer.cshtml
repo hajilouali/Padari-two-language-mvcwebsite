@@ -1,0 +1,66 @@
+﻿@model IEnumerable<DoormatWebSite.Models.Model.ourClientsText>
+<section>
+    <div class="spacing top-spac100 bottom-spac190">
+        <div class="container">
+            <div class="testi-spnsr">
+                <div class="row">
+                    @if (System.Globalization.CultureInfo.CurrentCulture.Name.Contains("fa"))
+                    {
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="spnsr-car text-center owl-carousel">
+                                @foreach (var item in ViewBag.cList)
+                                {
+                                    <div class="spnsr-bx">
+                                        <a title="" itemprop="url"><img src="/PageImages/@item" alt="spnsr" itemprop="image"></a>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="testi-car owl-carousel">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="testi-bx">
+                                        <p itemprop="description">@item.text</p>
+                                        <h6 itemprop="headline">@item.title</h6>
+                                    </div>
+                                }
+                            </div><!-- Testimonials Carousel -->
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="testi-car owl-carousel">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="testi-bx">
+                                        <p itemprop="description">@item.text</p>
+                                        <h6 itemprop="headline">@item.title</h6>
+                                    </div>
+                                }
+                            </div><!-- Testimonials Carousel -->
+                        </div>
+                        <div class="col-md-6 col-sm-12 col-lg-6">
+                            <div class="spnsr-car text-center owl-carousel">
+                                @foreach (var item in ViewBag.cList)
+                                {
+                                    <div class="spnsr-bx">
+                                        <a title="" itemprop="url"><img src="/PageImages/@item" alt="spnsr" itemprop="image"></a>
+                                    </div>
+                                }
+
+
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div><!-- Testimonials & Sponsors -->
+        </div>
+    </div>
+</section>

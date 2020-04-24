@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<div class="page-wrapper">
+    <div class="card">
+        <h2 class="card-header">Index</h2>
+        <div class="card-body">
+            @using (Html.BeginForm("Index", "VideoWarp", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label>@DoormatWebSite.Areas.Admin.Resource.Admin.backgrand</label>
+                    <img src="/PageImages/@ViewBag.backgrand" width="300px" />
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@DoormatWebSite.Areas.Admin.Resource.Admin.Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="imguplbackgrand">
+                            <label class="custom-file-label" for="inputGroupFile01">@DoormatWebSite.Areas.Admin.Resource.Admin.Choosefile</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>@DoormatWebSite.Areas.Admin.Resource.Admin.videoWarpVideoImage</label>
+                    <img src="/PageImages/@ViewBag.videoImage" width="150px" />
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@DoormatWebSite.Areas.Admin.Resource.Admin.Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="imguplVideo">
+                            <label class="custom-file-label" for="inputGroupFile01">@DoormatWebSite.Areas.Admin.Resource.Admin.Choosefile</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>@DoormatWebSite.Areas.Admin.Resource.Admin.Url</label>
+                    <input type="text" class="form-control" id="text-inputt" placeholder="" name="URL" value="@ViewBag.VideoURL">
+                    <small id="Help" class="form-text text-muted">@DoormatWebSite.Areas.Admin.Resource.Admin.interURLVideo</small>
+                    <label>@DoormatWebSite.Areas.Admin.Resource.Admin.OrChoiceFileVideo</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@DoormatWebSite.Areas.Admin.Resource.Admin.Upload</span>
+                        </div>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputGroupFile01" name="vidupl">
+                            <label class="custom-file-label" for="inputGroupFile01">@DoormatWebSite.Areas.Admin.Resource.Admin.Choosefile</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>@DoormatWebSite.Areas.Admin.Resource.Admin.buttenURL</label>
+                    <input type="text" class="form-control" id="text-inputt" placeholder="" name="URLbutten" value="@ViewBag.URLbutten">
+                    <small id="Help" class="form-text text-muted">@DoormatWebSite.Areas.Admin.Resource.Admin.interButtenURL</small>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-12">
+                        <input type="submit" value="@DoormatWebSite.Areas.Admin.Resource.Admin.save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
